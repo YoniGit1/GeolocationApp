@@ -9,13 +9,11 @@ module.exports = {
           };
           try{
             const response  = await axios(config);
-            console.log(response.data)
             if(response?.data?.rows[0]?.elements[0]?.distance?.value)
                 return parseInt(response.data.rows[0].elements[0].distance.value * (1/1000))
             else 
                 return false
           }catch(error){
-              console.log("err",error)
               return false
           }
     }
